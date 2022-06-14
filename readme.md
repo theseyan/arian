@@ -1,7 +1,10 @@
+<div align="center">
+<h1>Arian</h1>
 
-# Arian
-
+<i>
 An opinionated, massively scalable, superfast Websocket server powered by [µWebSockets.js](https://github.com/uNetworking/uWebSockets.js) and [NATS](https://nats.io/).
+</i>
+</div>
 
 # Work in Progress
 
@@ -9,8 +12,8 @@ This is a work in progress, the project is vastly incomplete and not ready for u
 
 ## Blazing Speed
 
-Arian server runs on native µWebSockets, which on it's own is about [10x faster than Socket.IO](https://medium.com/swlh/100k-secure-websockets-with-raspberry-pi-4-1ba5d2127a23) - the most widely used websockets library.
-Both server and clients communicate in binary, through the fastest implementation of MessagePack for Node.js.
+Arian server runs on native µWebSockets, which by itself is about [10x faster than Socket.IO](https://medium.com/swlh/100k-secure-websockets-with-raspberry-pi-4-1ba5d2127a23) - the most widely used websockets library.
+Both server and clients communicate in binary, through the fastest implementation of [MessagePack](https://msgpack.org/) for Node.js.
 
 ## Seamlessly Scalable
 
