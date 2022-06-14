@@ -1,0 +1,25 @@
+{
+  "name": "arian",
+  "version": "1.0.0",
+  "description": "Superfast & scalable Websockets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theseyan/arian.git"
+  },
+  "author": "Sayanjyoti Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theseyan/arian/issues"
+  },
+  "homepage": "https://github.com/theseyan/arian#readme",
+  "dependencies": {
+    "hyperid": "^3.0.1",
+    "msgpackr": "^1.6.1",
+    "nats": "^2.7.1",
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.10.0"
+  }
+}
