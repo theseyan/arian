@@ -12,11 +12,11 @@ This is a work in progress, the project is vastly incomplete and not ready for u
 
 ## Blazing Speed
 
-Arian server runs on native µWebSockets, which by itself is about [10x faster than Socket.IO](https://medium.com/swlh/100k-secure-websockets-with-raspberry-pi-4-1ba5d2127a23) - the most widely used websockets library.
-Both server and clients communicate in binary, through the fastest implementation of [MessagePack](https://msgpack.org/) for Node.js.
+Arian server runs on native µWebSockets, which by itself is about **[10x faster than Socket.IO](https://medium.com/swlh/100k-secure-websockets-with-raspberry-pi-4-1ba5d2127a23)** - the most widely used websocket library.  
+The Arian Server and Client communicate in a binary protocol with almost no overhead, through the fastest implementation of [MessagePack](https://msgpack.org/) for Node.js.
 
 ## Seamlessly Scalable
 
-Arian is seamlessly horizontally scalable through NATS. Hundreds of servers can work in tandem though inter communication with NATS, which is completely transparent to 
-the client and the server.
-Spinning up more servers will linearly increase message throughput and connection capacity.
+Although a single server can handle several thousands of concurrent connections, Arian lets you seamlessly scale horizontally by increasing the number of servers.  
+Hundreds of nodes can work together in tandem though inter-communication with NATS, which is completely transparent to the higher level client and server APIs.
+Spinning up more servers will linearly increase throughput and connection capacity with **no changes in code required**.
