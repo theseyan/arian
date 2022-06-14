@@ -2,7 +2,7 @@
 <h1>Arian</h1>
 
 <i>
-An opinionated, massively scalable, superfast Websocket server powered by [µWebSockets.js](https://github.com/uNetworking/uWebSockets.js) and [NATS](https://nats.io/).
+An opinionated, massively scalable, superfast Websocket server powered by <a href="https://github.com/uNetworking/uWebSockets.js">µWebSockets.js</a> and <a href="https://nats.io/">NATS</a>.
 </i>
 </div>
 
