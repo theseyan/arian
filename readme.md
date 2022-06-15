@@ -4,6 +4,10 @@
 <i>
 An opinionated, massively scalable, superfast Websocket server powered by <a href="https://github.com/uNetworking/uWebSockets.js">µWebSockets.js</a> and <a href="https://nats.io/">NATS</a>.
 </i>
+<br><br>
+<a href="https://lgtm.com/projects/g/theseyan/arian/context:javascript"><img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/javascript/github/theseyan/arian?logo=lgtm"></a>
+
+<br><br>
 </div>
 
 # Work in Progress
