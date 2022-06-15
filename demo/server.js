@@ -6,46 +6,66 @@ const natsConfig = require('./config.json');
 nats.connect(natsConfig).then(client => {
     console.log("NATS connected to " + client.getServer());
 
-    // Create websocket server
-    var server = new ArianServer({
+    // Create websocket servers
+    var server1 = new ArianServer({
+        nats: client
+    });
+    var server2 = new ArianServer({
         nats: client
     });
 
-    // Start listening
-    server.listen(3000).then(io => {
-        console.log('Listening to Port 3000');
+    // Start Server1
+    server1.listen(3000).then(function(io) {
+        console.log('Server1 listening to Port 3000');
 
         // Listen for connections
         io.events.on('connect', client => {
 
-            console.log(`Client ${client.id} connected`);
-
-            // Send custom event message
-            client.send('customEvent', {
-                msg: 'this is a message'
-            });
+            console.log(`Client ${client.id} connected to Server1`);
 
             // Listen for messages
             client.on('message', data => {
-                console.log(data);
+                console.log('[Server1]', data);
             });
 
-            // Listen for custom client event
-            client.on('customClientEvent', data => {
-                console.log(data);
+            // Join a room
+            client.join('myRoom');
+
+            // Fired when the client disconnects
+            client.on('close', (id) => {
+                console.log(`Client ${id} disconnected from Server1`);
+            });
+
+        });
+    });
+
+    // Start Server2
+    server2.listen(3001).then(function(io) {
+        console.log('Server2 listening to Port 3001');
+
+        // Listen for connections
+        io.events.on('connect', client => {
+
+            console.log(`Client ${client.id} connected to Server2`);
+
+            // Listen for messages
+            client.on('message', data => {
+                console.log('[Server2]', data);
             });
 
             // Join a room
             client.join('myRoom');
 
             // Send a message to all users in the room
-            io.send('myRoom', {
-                msg: 'A message sent to the room!'
-            });
+            setTimeout(() => {
+                io.send('myRoom', {
+                    msg: 'A message sent to the room from Server2!'
+                });
+            }, 1000);
 
             // Fired when the client disconnects
             client.on('close', (id) => {
-                console.log(`Client ${id} disconnected`);
+                console.log(`Client ${id} disconnected from Server2`);
             });
 
         });

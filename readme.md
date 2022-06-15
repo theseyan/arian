@@ -17,8 +17,9 @@ TODO:
 - :white_check_mark: ~~Standalone Websocket Server and Client~~
 - :white_check_mark: ~~Full support for Rooms~~
 - Pub/Sub and Broadcasting
-- NATS based Horizontal Scaling
+- :white_check_mark: ~~NATS based Horizontal Scaling~~
 - Properly deal with Backpressure and error cases
+- Benchmark Suite
 - Documentation
 - Write Unit Tests
 
