@@ -13,50 +13,44 @@ let shares = {
 	'NVDA': 183.03
 };
 
-// Connect to NATS
-nats.connect(natsConfig).then(client => {
-    // Create websocket server
-    var server = new ArianServer({});
+// Create websocket server
+var server = new ArianServer({});
 
-    /* Define the server */
-    server.listen(3000).then(function(io) {
+/* Define the server */
+server.listen(3000).then(function(io) {
 
-        io.events.on('connect', function(socket) {
-            socket.on('message', (message) => {
-                let json = message;
-                switch (json.action) {
-                    case 'sub': {
-                        /* Subscribe to the share's value stream */
-                        socket.join('shares/' + json.share + '/value');
-                        break;
-                    }
-                    case 'buy': {
-                        transactionsPerSecond++;
-
-                        /* For simplicity, shares increase 0.1% with every buy */
-                        shares[json.share] *= 1.001;
-
-                        /* Value of share has changed, update subscribers */
-                        io.emit('shares/' + json.share + '/value', 'message', {[json.share]: shares[json.share]});
-                        break;
-                    }
-                    case 'sell': {
-                        transactionsPerSecond++;
-
-                        /* For simplicity, shares decrease 0.1% with every sale */
-                        shares[json.share] *= 0.999
-
-                        io.emit('shares/' + json.share + '/value', 'message', {[json.share]: shares[json.share]});
-                        break;
-                    }
+    io.events.on('connect', function(socket) {
+        socket.on('message', (message) => {
+            let json = message;
+            switch (json.action) {
+                case 'sub': {
+                    /* Subscribe to the share's value stream */
+                    socket.join('shares/' + json.share + '/value');
+                    break;
                 }
-            });
-        });
+                case 'buy': {
+                    transactionsPerSecond++;
 
+                    /* For simplicity, shares increase 0.1% with every buy */
+                    shares[json.share] *= 1.001;
+
+                    /* Value of share has changed, update subscribers */
+                    io.emit('shares/' + json.share + '/value', 'message', {[json.share]: shares[json.share]});
+                    break;
+                }
+                case 'sell': {
+                    transactionsPerSecond++;
+
+                    /* For simplicity, shares decrease 0.1% with every sale */
+                    shares[json.share] *= 0.999
+
+                    io.emit('shares/' + json.share + '/value', 'message', {[json.share]: shares[json.share]});
+                    break;
+                }
+            }
+        });
     });
 
-}).catch(e => {
-    throw new Error("Could not connect to NATS: " + e);
 });
 
 /* Print transactions per second */
