@@ -15,9 +15,30 @@ nats.connect(natsConfig).then(client => {
     server.listen(3000).then(io => {
         console.log('Listening to Port 3000');
 
+        // Listen for connections
         io.events.on('connect', client => {
 
-            //console.log(client);
+            console.log(`Client ${client.id} connected`);
+
+            // Send custom event message
+            client.send('customEvent', {
+                msg: 'this is a message'
+            });
+
+            // Listen for messages
+            client.on('message', data => {
+                console.log(data);
+            });
+
+            // Listen for custom client event
+            client.on('customClientEvent', data => {
+                console.log(data);
+            });
+
+            // Fired when the client disconnects
+            client.on('close', (id) => {
+                console.log(`Client ${id} disconnected`);
+            });
 
         });
     });

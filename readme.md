@@ -14,8 +14,9 @@ An opinionated, massively scalable, superfast Websocket server powered by <a hre
 
 This is a work in progress, the project is vastly incomplete and not ready for use in production.  
 TODO:
-- Standalone Websocket Server and Client
+- :white_check_mark: ~~Standalone Websocket Server and Client~~
 - NATS based Horizontal Scaling
+- Properly deal with Backpressure and error cases
 - Documentation
 - Write Unit Tests
 
