@@ -35,6 +35,14 @@ nats.connect(natsConfig).then(client => {
                 console.log(data);
             });
 
+            // Join a room
+            client.join('myRoom');
+
+            // Send a message to all users in the room
+            io.send('myRoom', {
+                msg: 'A message sent to the room!'
+            });
+
             // Fired when the client disconnects
             client.on('close', (id) => {
                 console.log(`Client ${id} disconnected`);
