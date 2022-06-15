@@ -18,9 +18,9 @@ The Arian Server and Client communicate in a binary protocol with almost no over
 ## :globe_with_meridians: Seamlessly Scalable
 
 Although a single server can handle *several thousands of concurrent connections*, Arian lets you seamlessly scale horizontally by simply adding more servers.  
-Hundreds of nodes can work together in tandem using NATS as a message broker, which is completely transparent to the higher level client and server APIs.
+Hundreds of nodes can work together in tandem using NATS as a *message broker*, which is completely transparent to the higher level client and server APIs.
 Spinning up more servers will linearly increase throughput and connection capacity with **no changes in code required**.
 
 ## :battery: Batteries Included
 
-Arian comes with full support for Rooms, Pub/Sub and broadcasting, while maintaining minimal memory overhead.
+Arian comes with full support for Rooms, Pub/Sub and Broadcasting, while maintaining minimal memory overhead.
