@@ -15,7 +15,11 @@ nats.connect(natsConfig).then(client => {
     server.listen(3000).then(io => {
         console.log('Listening to Port 3000');
 
-        
+        io.events.on('connect', client => {
+
+            //console.log(client);
+
+        });
     });
 
 }).catch(e => {

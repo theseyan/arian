@@ -12,7 +12,13 @@ An opinionated, massively scalable, superfast Websocket server powered by <a hre
 
 # Work in Progress
 
-This is a work in progress, the project is vastly incomplete and not ready for use in production.
+This is a work in progress, the project is vastly incomplete and not ready for use in production.  
+TODO:
+- Standalone Websocket Server and Client
+- NATS based Horizontal Scaling
+- Documentation
+- Write Unit Tests
+
 
 ## :zap: Blazing Speed
 
@@ -27,4 +33,4 @@ Spinning up more servers will linearly increase throughput and connection capaci
 
 ## :battery: Batteries Included
 
-Arian comes with full support for Rooms, Pub/Sub and Broadcasting, while maintaining minimal memory overhead.
+Arian comes with full support for Rooms, Custom events, Pub/Sub and Broadcasting, while maintaining minimal memory overhead.

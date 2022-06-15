@@ -20,6 +20,7 @@
     "hyperid": "^3.0.1",
     "msgpackr": "^1.6.1",
     "nats": "^2.7.1",
-    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.10.0"
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.10.0",
+    "websocket": "^1.0.34"
   }
 }
