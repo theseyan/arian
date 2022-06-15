@@ -1,7 +1,5 @@
 /* Simplified stock exchange made with Arian pub/sub */
 const { ArianServer } = require('../../../index');
-const nats = require('nats');
-const natsConfig = require('../../../demo/config.json');
 
 /* We measure transactions per second server side */
 let transactionsPerSecond = 0;
@@ -18,9 +16,7 @@ let shares = {
 // Connect to NATS
 nats.connect(natsConfig).then(client => {
     // Create websocket server
-    var server = new ArianServer({
-        nats: client
-    });
+    var server = new ArianServer({});
 
     /* Define the server */
     server.listen(3000).then(function(io) {
