@@ -8,8 +8,7 @@ const URL = 'http://localhost:3000';
 const numClients = 125;
 const tradersFraction = 0.1;
 
-/* 125 * 4 = 500, even though 4 instances cannot stress the server fully */
-console.log("RUN 4 INSTANCES OF THIS CLIENT");
+var numSent = 0;
 
 let shares = [
 	'NFLX',
@@ -48,6 +47,7 @@ function establishConnections(remainingClients) {
 				} else {
 					socket.send({action: 'sell', share: shareOfInterest});
 				}
+                numSent++;
 			}, 1);
 		}
 
@@ -70,3 +70,8 @@ function establishConnections(remainingClients) {
 }
 
 establishConnections(numClients);
+
+setInterval(() => {
+    console.log(numSent + ' ops/sec');
+    numSent = 0;
+}, 1000);
