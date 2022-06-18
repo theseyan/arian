@@ -57,8 +57,10 @@ server.listen(3000).then(function(io) {
 let last = Date.now();
 setInterval(() => {
 	transactionsPerSecond /= ((Date.now() - last) * 0.001)
-	console.log("Transactions per second: " + transactionsPerSecond + ", here are the curret shares:");
-	console.log(shares);
+	console.log("Transactions per second: " + transactionsPerSecond + "");
+	//console.log(shares);
+    var mem = process.memoryUsage();
+    console.log("Memory Usage: ", Math.round(mem.heapUsed/1000000) + "MB out of " + Math.round(mem.heapTotal/1000000) + "MB");
 	console.log("");
 	transactionsPerSecond = 0;
 	last = Date.now();
