@@ -22,6 +22,7 @@ server.listen(3000).then(function(io) {
     io.events.on('connect', function(socket) {
         socket.on('message', (message) => {
             let json = message;
+            
             switch (json.action) {
                 case 'sub': {
                     /* Subscribe to the share's value stream */
