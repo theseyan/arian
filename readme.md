@@ -22,7 +22,7 @@ TODO:
 - Properly deal with Backpressure and error cases
 - Benchmark Suite
 - Documentation
-- Write Unit Tests
+- Write Unit Tests (esp. check integrity of sent & received messages with buffer reuse enabled)
 
 
 ## :zap: Blazing Speed
