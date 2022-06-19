@@ -38,7 +38,7 @@ server_io.on('connection', function(socket) {
 				transactionsPerSecond++;
 
 				/* For simplicity, shares decrease 0.1% with every sale */
-				shares[json.share] *= 0.999
+				shares[json.share] *= 0.999;
 
 				server_io.in('shares/' + json.share + '/value').emit('message', JSON.stringify({[json.share]: shares[json.share]}));
 				break;

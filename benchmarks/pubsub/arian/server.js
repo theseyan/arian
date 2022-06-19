@@ -43,7 +43,7 @@ server.listen(3000).then(function(io) {
                     transactionsPerSecond++;
 
                     /* For simplicity, shares decrease 0.1% with every sale */
-                    shares[json.share] *= 0.999
+                    shares[json.share] *= 0.999;
 
                     io.emit('shares/' + json.share + '/value', 'message', {[json.share]: shares[json.share]});
                     break;
