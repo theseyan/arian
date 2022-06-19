@@ -1,6 +1,6 @@
 <div align="center">
 <br><br>
-<img src="https://raw.githubusercontent.com/theseyan/arian/main/misc/logo.png" height="180" /><br><br>
+<img src="https://raw.githubusercontent.com/theseyan/arian/main/misc/logo.png" /><br><br>
 
 <i>
 An opinionated, massively scalable, superfast Websocket server powered by <a href="https://github.com/uNetworking/uWebSockets.js">µWebSockets.js</a> and <a href="https://nats.io/">NATS</a>.
