@@ -2,14 +2,12 @@ const WebSocket = require('websocket').w3cwebsocket;
 const { ArianClient } = require('../index');
 
 // Websocket connection URL
-const URL1 = 'http://localhost:3000';
-const URL2 = 'http://localhost:3001';
+const URL1 = 'http://localhost:3000?token=token1';
+const URL2 = 'http://localhost:3001?token=token2';
 
 // Create a WebSocket and ArianClient instances
-var ws1 = new WebSocket(URL1);
-var ws2 = new WebSocket(URL2);
-var client1 = new ArianClient(ws1, URL1);
-var client2 = new ArianClient(ws2, URL2);
+var client1 = new ArianClient(new WebSocket(URL1));
+var client2 = new ArianClient(new WebSocket(URL2));
 
 // Handle message
 client1.on('message', (data) => {
