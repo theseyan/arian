@@ -21,7 +21,8 @@ nats.connect(natsConfig).then(client => {
         // Listen for connections
         io.events.on('connect', client => {
 
-            console.log(`Client ${client.id} connected to Server1`);
+            console.log(`Client ${client.id} connected to Server1 with data: `);
+            console.log(client.data);
 
             // Listen for messages
             client.on('message', data => {
@@ -46,7 +47,8 @@ nats.connect(natsConfig).then(client => {
         // Listen for connections
         io.events.on('connect', client => {
 
-            console.log(`Client ${client.id} connected to Server2`);
+            console.log(`Client ${client.id} connected to Server2 with data:`);
+            console.log(client.data);
 
             // Listen for messages
             client.on('message', data => {

@@ -2,7 +2,7 @@ const WebSocket = require('websocket').w3cwebsocket;
 const { ArianClient } = require('../index');
 
 // Websocket connection URL
-const URL1 = 'http://localhost:3000?token=token1';
+const URL1 = 'http://localhost:3000?token=token1&customdata=loremipsum';
 const URL2 = 'http://localhost:3001?token=token2';
 
 // Create a WebSocket and ArianClient instances
