@@ -41,8 +41,16 @@ nats.connect(natsConfig).then(client => {
     });
 
     // Start Server2
-    server2.listen(3001).then(function(io) {
+    server2.listen(3001).then(async function(io) {
         console.log('Server2 listening to Port 3001');
+
+        // countSockets() demo
+        setInterval(async () => {
+            console.log("No. of connected sockets: " + (await io.countSockets()));
+        }, 5000);
+
+        // serverCount() demo
+        console.log("No. of servers in cluster: " + (await io.serverCount()));
 
         // Listen for connections
         io.events.on('connect', client => {
